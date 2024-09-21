@@ -7,45 +7,50 @@ import { HiMiniBars3BottomRight, HiMiniBars4 } from "react-icons/hi2";
 import MobileHeader from "./mobileHeader";
 
 const navLinks = [
-  { title: `About`, path: `/about` },
-  { title: `Contact`, path: `/contact` },
-  { title: `Blog`, path: `/blog` },
-  { title: `Projects`, path: `/projects` },
+  { title: `About`, path: `#about` },
+  { title: `Contact`, path: `#contact` },
+  { title: `Blog`, path: `#blog` },
+  { title: `Projects`, path: `#projects` },
 ];
 const Header = () => {
   const [navbaropen, setnavbaropen] = useState(false);
 
   return (
-    <nav>
-        <div className="flex gap-5 bg-mycolor-200 justify-between items-center font-bold border p-4 text-3xl px-10 font-playpen">
-      <div>MERT</div>
-      <div className="absolute  right-7 md:hidden">
-        {navbaropen ? (
-          <Button onClick={() => setnavbaropen(!navbaropen)}>
-            <HiMiniBars4 className="h-5 w-5" />
-          </Button>
-        ) : (
-          <Button onClick={() => setnavbaropen(!navbaropen)}>
-            {" "}
-            <HiMiniBars3BottomRight className="h-5 w-5" />
-          </Button>
-        )}
-      </div>
-      <nav>
-        <ul className="hidden md:flex gap-7 ">
-          {navLinks.map((link, index) => (
-            <li key={index}>
-              <HeaderItem href={link.path} title={link.title} />
-            </li>
-          ))}
-        </ul>
+    <>
+      {/* Header kısmını sabit (fixed) yapmak için eklenen sınıflar */}
+      <nav  className="fixed top-0 left-0 right-0 z-50">
+        <div className="flex gap-5 bg-mycolor-200 justify-between items-center font-bold p-4 text-3xl px-10 font-playpen">
+          <div>MERT</div>
+          <div className="absolute right-7 md:hidden">
+            {navbaropen ? (
+              <Button onClick={() => setnavbaropen(!navbaropen)}>
+                <HiMiniBars4 className="h-5 w-5" />
+              </Button>
+            ) : (
+              <Button onClick={() => setnavbaropen(!navbaropen)}>
+                <HiMiniBars3BottomRight className="h-5 w-5" />
+              </Button>
+            )}
+          </div>
+          <nav>
+            <ul className="hidden md:flex gap-7 ">
+              {navLinks.map((link, index) => (
+                <li key={index}>
+                  <HeaderItem href={link.path} title={link.title} />
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+        {/* Mobil menü açıldığında */}
+        {navbaropen ? <MobileHeader links={navLinks} /> : null}
       </nav>
 
-    </div>
-    {navbaropen ? <MobileHeader links={navLinks}/> :null}
-
-    </nav>
-
+      {/* Header'a sabit pozisyon verdiğimiz için, içeriğe üstten boşluk ekleyelim */}
+      <div className="pt-[80px]"> {/* Header'ın yüksekliğine göre padding-top ayarlandı */}
+        {/* Sayfanın geri kalanı */}
+      </div>
+    </>
   );
 };
 
