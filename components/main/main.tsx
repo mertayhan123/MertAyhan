@@ -29,8 +29,7 @@ const Main = () => {
                   "Web Developer",
                   "Mobile Developer",
                   "Freelancer",
-                  "Blogger",
-                  "Open Source Contributor",
+                  
                 ]}
                 wrapper="span"
                 speed={10}
@@ -38,12 +37,17 @@ const Main = () => {
               />
             </h2>
             <p className="text-mycolor-100 text-base mb-6 lg:text-lg">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut,
-              labore expedita inventore eum temporibus sed dicta. Ducimus animi
-              nam obcaecati ab mollitia officia ipsam expedita nesciunt delectus
-              maiores iusto in corrupti molestiae, quod ullam modi, saepe cum
-              possimus eaque beatae sed neque ad. Asperiores, voluptate. Laborum
-              cum vitae voluptates quidem?
+              Hello, I’m Mert Ayhan, a 4th-year Computer Engineering student at
+              Balıkesir University. I’ve always been someone who loves
+              researching and learning new things. Following and analyzing
+              developments in all areas of technology is probably my biggest
+              hobby. In addition, I have a great interest in astronomy. Planets,
+              stars, galaxies, nebulae, pulsars... Every night before I sleep, I
+              can't stop thinking about this vast universe. (I think my love for
+              physics and astronomy is also evident from my tattoos :) ) For the
+              past two years, I’ve been developing myself as a full-stack
+              developer with ReactJS, ExpressJS, and NodeJS. I’ve also developed
+              some projects with Flutter. That’s a quick summary of my life!
             </p>
             <div>
               <Link

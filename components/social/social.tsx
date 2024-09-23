@@ -10,7 +10,7 @@ const SocialMedia = () => {
         href="https://github.com/mertayhan123" // GitHub profil URL'ni ekle
         target="_blank"
         rel="noopener noreferrer"
-        className="text-gray-600 hover:text-black transition-colors duration-300"
+        className="text-[#FFD700] transition-colors duration-300"
       >
         <FaGithub size={300} />
       </a>
@@ -20,7 +20,7 @@ const SocialMedia = () => {
         href="https://www.linkedin.com/in/mert-ayhan-0bb469233/" // LinkedIn profil URL'ni ekle
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-600 hover:text-blue-800 transition-colors duration-300"
+        className="text-[#FFD700]  transition-colors duration-300"
       >
         <FaLinkedin size={300} />
       </a>
@@ -30,7 +30,7 @@ const SocialMedia = () => {
         href="mailto:mertayhandev@gmail.com" // Mail adresini ekle
         target="_blank"
         rel="noopener noreferrer"
-        className="text-red-600 hover:text-red-800 transition-colors duration-300"
+        className="text-[#FFD700]  transition-colors duration-300"
       >
         <HiOutlineMail size={300} />
       </a>
