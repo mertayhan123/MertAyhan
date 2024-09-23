@@ -50,6 +50,7 @@ const About = () => {
     startTransition(() => {
       setTab(id);
     });
+    console.log(isPending+"isPending");
   };
   return (
     <div className="text-white" id="about">

@@ -1,12 +1,8 @@
 "use client";
 
 import { Terminal } from "lucide-react";
-
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-
-import { Linkedin, LinkedinIcon } from "lucide-react";
 import React, { useState } from "react";
-import { BsGithub, BsGoogle, BsLinkedin } from "react-icons/bs";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
@@ -15,31 +11,29 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 
 const Contact = () => {
-  const [emailSubmited, setEmailSubmitted] = useState(false);
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
+      email: (e.target as HTMLFormElement).email.value,
+      subject: (e.target as HTMLFormElement).subject.value,
+      message: (e.target as HTMLFormElement).message.value,
     };
 
-    const JsonData = JSON.stringify(data);
+    const jsonData = JSON.stringify(data);
     const endpoint = "/api/send";
 
-    const options = {
+    const options: RequestInit = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-
-      body: JsonData,
+      body: jsonData,
     };
 
     const response = await fetch(endpoint, options);
-    const resData = await response.json();
 
     if (response.status === 200) {
       console.log("Message Success");
@@ -52,13 +46,13 @@ const Contact = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 my-10 gap-5 mt-12 md:mt-24">
         <div className="col-span-1">
           <h5 className="text-mycolor-100 font-semibold mb-4 text-2xl">
-            Lets Connect
+            Let s Connect
           </h5>
           <p className="text-base text-white">
-            If you’d like to discuss my projects, collaborate, or just have a
+            If you d like to discuss my projects, collaborate, or just have a
             chat about technology, feel free to reach out to me via the channels
-            below. I’m always open to learning new things and enjoy connecting
-            with people from different fields.{" "}
+            below. I m always open to learning new things and enjoy connecting
+            with people from different fields.
           </p>
 
           <div className="flex flex-row gap-4 mt-5">
@@ -85,17 +79,17 @@ const Contact = () => {
               className="text-red-600 hover:text-red-800 transition-colors duration-300"
             >
               <HiOutlineMail size={40} />
-            </a>{" "}
+            </a>
           </div>
         </div>
 
         <div className="col-span-1">
-          {emailSubmited ? (
+          {emailSubmitted ? (
             <Alert className="bg-green-600 text-white">
               <Terminal className="h-4 w-4" />
               <AlertTitle>Heads up!</AlertTitle>
               <AlertDescription>
-                You can add components to your app using the cli.
+                Your message has been sent successfully!
               </AlertDescription>
             </Alert>
           ) : (
@@ -123,7 +117,7 @@ const Contact = () => {
               </div>
 
               <div className="mb-6 text-white">
-                <Label>Subject</Label>
+                <Label>Message</Label>
                 <Textarea
                   name="message"
                   className="bg-mycolor-600 mt-2"
